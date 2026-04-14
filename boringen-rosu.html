@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boringen Rosu | Chirurg in Beton — Boren & Zagen</title>
+  <meta name="description" content="Boringen Rosu: uw specialist in diamantboren, betonzagen, gevelreiniging en renovatie. Actief over heel België. +15 jaar ervaring. VCA gecertificeerd." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #d42b2b;
+      --red-dark: #a81f1f;
+      --black:    #0a0a0a;
+      --steel:    #1a1a1a;
+      --concrete: #2e2e2e;
+      --mid:      #555;
+      --light:    #c8c8c0;
+      --white:    #f2f0eb;
+      --border:   rgba(255,255,255,0.08);
+      --yellow:   #f5c842;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 900;
+      opacity: 0.6;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--red);
+      padding: 0.45rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .topbar a { color: var(--white); text-decoration: none; }
+    .topbar-contact { display: flex; gap: 2rem; }
+    .topbar-social { display: flex; gap: 1rem; }
+    .topbar-social a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .topbar-social a:hover { color: var(--white); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 500;
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; cursor: pointer;
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .nav-logo-text span { color: var(--red); }
+    .nav-links {
+      display: flex; gap: 0; list-style: none;
+    }
+    .nav-links a {
+      display: block;
+      padding: 0 1.25rem;
+      height: 70px;
+      line-height: 70px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); border-color: var(--red); }
+    .nav-cta-btn {
+      background: var(--red);
+      color: var(--white) !important;
+      border-bottom: none !important;
+      padding: 0 1.5rem !important;
+      margin-left: 1rem;
+      transition: background 0.2s !important;
+    }
+    .nav-cta-btn:hover { background: var(--red-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--steel);
+      border-bottom: 2px solid var(--red);
+      padding: 1.5rem 2rem;
+      z-index: 499;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 105px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 5rem 3rem 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--red), transparent);
+    }
+
+    /* large background text */
+    .hero-bg-text {
+      position: absolute;
+      top: 50%; left: -0.05em;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(14rem, 22vw, 22rem);
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 2px;
+      background: var(--red);
+    }
+    .hero-eyebrow span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--light);
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid var(--red);
+      padding-left: 1.25rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      color: var(--light);
+    }
+    .hero-badge.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .hero-cta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); color: var(--white); }
+
+    /* hero right */
+    .hero-right {
+      position: relative;
+      background: var(--steel);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,43,43,0.15) 0%, transparent 60%);
+    }
+    .hero-img-area {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: linear-gradient(160deg, #1a1a1a 0%, #111 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Animated drill illustration */
+    .drill-graphic {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      opacity: 0.15;
+    }
+    .drill-graphic::before {
+      content: '⬡';
+      font-size: 12rem;
+      color: var(--red);
+      animation: spin 8s linear infinite;
+      display: block;
+      line-height: 1;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* rating badge */
+    .hero-rating {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: var(--black);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--yellow);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 2;
+    }
+    .rating-stars { color: var(--yellow); font-size: 0.9rem; letter-spacing: 0.05em; }
+    .rating-text { font-size: 0.7rem; color: var(--light); line-height: 1.4; }
+    .rating-text strong { display: block; color: var(--white); font-size: 0.8rem; }
+
+    .hero-exp-badge {
+      position: absolute;
+      top: 2.5rem;
+      right: 2rem;
+      background: var(--red);
+      padding: 1.25rem;
+      text-align: center;
+      z-index: 2;
+      min-width: 100px;
+    }
+    .exp-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--white);
+    }
+    .exp-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.1rem;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      overflow: hidden;
+      background: var(--red);
+      padding: 0.8rem 0;
+      border-top: 1px solid rgba(0,0,0,0.2);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 2.5rem;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+    .marquee-track span.sep { color: rgba(255,255,255,0.4); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SERVICES GRID ── */
+    .services {
+      padding: 6rem 3rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      background: var(--steel);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+    .service-card:hover { background: var(--concrete); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.04);
+      position: absolute;
+      top: 0.5rem; right: 1rem;
+      line-height: 1;
+      pointer-events: none;
+      transition: color 0.3s;
+    }
+    .service-card:hover .service-num { color: rgba(212,43,43,0.08); }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .service-card:hover .service-icon {
+      border-color: var(--red);
+      background: rgba(212,43,43,0.1);
+    }
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-list li {
+      font-size: 0.82rem;
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .service-list li::before {
+      content: '—';
+      color: var(--red);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+    .service-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .service-card:hover .service-link { gap: 0.75rem; }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+    }
+    .about-left {
+      background: var(--red);
+      padding: 5rem 3rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-left::after {
+      content: 'ROSU';
+      position: absolute;
+      bottom: -2rem; right: -1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12rem;
+      color: rgba(0,0,0,0.15);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .about-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .about-left p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-usp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .about-usp-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+    .about-usp-list li::before {
+      content: '✓';
+      width: 20px; height: 20px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .about-right {
+      background: var(--concrete);
+      padding: 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stat-box {
+      background: var(--steel);
+      padding: 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .stat-box:hover { background: var(--concrete); }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 0.25rem;
+    }
+    .vca-badge {
+      background: var(--steel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--yellow);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .vca-icon { font-size: 1.5rem; }
+    .vca-text { font-size: 0.82rem; color: var(--light); line-height: 1.5; }
+    .vca-text strong { color: var(--white); display: block; font-size: 0.88rem; }
+
+    /* ── REFERENCES ── */
+    .references {
+      padding: 4rem 3rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ref-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .ref-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .ref-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.2);
+      transition: color 0.3s;
+      cursor: default;
+    }
+    .ref-logo:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--red);
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '»';
+      position: absolute;
+      right: -1rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20rem;
+      color: rgba(0,0,0,0.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .cta-banner h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+    .cta-banner p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-banner-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: transform 0.15s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .cta-phone {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* ── CONTACT SECTION ── */
+    .contact-section {
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--steel);
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--red); }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .contact-item-text { font-size: 0.85rem; color: var(--light); line-height: 1.5; }
+    .contact-item-text strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 0.1rem; }
+    .contact-item-text a { color: var(--red); text-decoration: none; }
+    .contact-hours {
+      background: var(--steel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      padding: 1.25rem 1.5rem;
+    }
+    .contact-hours-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+    .contact-hours p {
+      font-size: 0.85rem;
+      color: var(--light);
+    }
+
+    .contact-form {
+      background: var(--steel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+    .contact-form h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--concrete);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--red); }
+    .form-group select option { background: var(--concrete); }
+    .form-group textarea { min-height: 110px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--steel);
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem 2rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .footer-logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .footer-socials { display: flex; gap: 0.5rem; }
+    .footer-social {
+      width: 34px; height: 34px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--mid);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social:hover { border-color: var(--red); color: var(--red); }
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul li a::before { content: '—'; color: var(--red); font-size: 0.6rem; }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--mid);
+    }
+    .footer-bottom a { color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--red); }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-strip { grid-template-columns: 1fr; }
+      .cta-banner { grid-template-columns: 1fr; }
+      .contact-section { grid-template-columns: 1fr; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .topbar { padding: 0.45rem 1.5rem; }
+      .topbar-social { display: none; }
+    }
+    @media (max-width: 640px) {
+      .services { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .references { padding: 3rem 1.5rem; }
+      .about-left { padding: 3.5rem 1.5rem; }
+      .about-right { padding: 3.5rem 1.5rem; }
+      .cta-banner { padding: 3.5rem 1.5rem; }
+      .contact-section { padding: 4rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 3rem 1.5rem 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .hero-left { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-contact">
+      <a href="tel:+32465405016">📞 +32 465 40 50 16</a>
+      <a href="mailto:boringenrosu@gmail.com">✉ boringenrosu@gmail.com</a>
+    </div>
+    <div class="topbar-social">
+      <a href="#">FB</a>
+      <a href="#">LI</a>
+      <a href="#">YT</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon">BR</div>
+      <div class="nav-logo-text">Boringen <span>Rosu</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('beton-boren')">Beton Boren</a></li>
+      <li><a onclick="showPage('beton-zagen')">Beton Zagen</a></li>
+      <li><a onclick="showPage('gevelreiniging')">Gevelreiniging</a></li>
+      <li><a onclick="showPage('renovatie')">Renovatie</a></li>
+      <li><a onclick="showPage('over')">Over Ons</a></li>
+      <li><a class="nav-cta-btn" onclick="showPage('contact')">Offerte →</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a onclick="showPage('home'); toggleMenu()">Home</a>
+    <a onclick="showPage('beton-boren'); toggleMenu()">Beton Boren</a>
+    <a onclick="showPage('beton-zagen'); toggleMenu()">Beton Zagen</a>
+    <a onclick="showPage('gevelreiniging'); toggleMenu()">Gevelreiniging</a>
+    <a onclick="showPage('renovatie'); toggleMenu()">Renovatie</a>
+    <a onclick="showPage('over'); toggleMenu()">Over Ons</a>
+    <a onclick="showPage('contact'); toggleMenu()" style="color:var(--red);">→ Vraag een Offerte</a>
+  </div>
+
+  <!-- ═══════════════ HOME ═══════════════ -->
+  <div class="page active" id="page-home">
+
+    <section class="hero">
+      <div class="hero-bg-text">BETON</div>
+      <div class="hero-left reveal">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span>Actief over heel België · VCA Gecertificeerd</span>
+        </div>
+        <h1>Uw chirurg<br>in <em>beton</em></h1>
+        <p class="hero-desc">
+          Onze toewijding aan kwaliteit en innovatie onderscheidt ons in de industrie. We werken uitsluitend met de meest geavanceerde apparatuur, voor elk project — groot of klein.
+        </p>
+        <div class="hero-badges">
+          <span class="hero-badge active">Diamantboren</span>
+          <span class="hero-badge">Betonzagen</span>
+          <span class="hero-badge">Gevelreiniging</span>
+          <span class="hero-badge">Renovatie</span>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="showPage('contact')">Offerte aanvragen →</button>
+          <button class="btn-outline" onclick="showPage('over')">Over ons</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-area">
+          <div class="drill-graphic"></div>
+          <div class="hero-rating">
+            <div>
+              <div class="rating-stars">★★★★★</div>
+              <div class="rating-text"><strong>5 / 5</strong>Google Reviews</div>
+            </div>
+          </div>
+          <div class="hero-exp-badge">
+            <div class="exp-num">15+</div>
+            <div class="exp-label">Jaar<br>Ervaring</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>Diamantboren</span><span class="sep">✦</span>
+        <span>Kernboren</span><span class="sep">✦</span>
+        <span>Wandzagen</span><span class="sep">✦</span>
+        <span>Vloerzagen</span><span class="sep">✦</span>
+        <span>Gevelreiniging</span><span class="sep">✦</span>
+        <span>Graffiti Verwijdering</span><span class="sep">✦</span>
+        <span>Renovatie</span><span class="sep">✦</span>
+        <span>VCA Gecertificeerd</span><span class="sep">✦</span>
+        <span>Diamantboren</span><span class="sep">✦</span>
+        <span>Kernboren</span><span class="sep">✦</span>
+        <span>Wandzagen</span><span class="sep">✦</span>
+        <span>Vloerzagen</span><span class="sep">✦</span>
+        <span>Gevelreiniging</span><span class="sep">✦</span>
+        <span>Graffiti Verwijdering</span><span class="sep">✦</span>
+        <span>Renovatie</span><span class="sep">✦</span>
+        <span>VCA Gecertificeerd</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-label">Onze Diensten</div>
+          <h2 class="section-title">Wat wij doen</h2>
+        </div>
+        <button class="btn-outline" onclick="showPage('contact')" style="font-size:0.75rem; padding:0.6rem 1.25rem;">Offerte aanvragen →</button>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card" onclick="showPage('beton-boren')">
+          <div class="service-num">01</div>
+          <div class="service-icon">⬤</div>
+          <h3>Beton Boren</h3>
+          <ul class="service-list">
+            <li>Diamantboren</li>
+            <li>Kernboren</li>
+            <li>Professionele betonboringen</li>
+          </ul>
+          <span class="service-link">Lees meer →</span>
+        </div>
+        <div class="service-card" onclick="showPage('beton-zagen')">
+          <div class="service-num">02</div>
+          <div class="service-icon">◼</div>
+          <h3>Beton Zagen</h3>
+          <ul class="service-list">
+            <li>Wandzagen</li>
+            <li>Vloerzagen</li>
+            <li>Diamantzagen</li>
+          </ul>
+          <span class="service-link">Lees meer →</span>
+        </div>
+        <div class="service-card" onclick="showPage('gevelreiniging')">
+          <div class="service-num">03</div>
+          <div class="service-icon">💧</div>
+          <h3>Gevelreiniging</h3>
+          <ul class="service-list">
+            <li>Graffiti Verwijdering</li>
+            <li>Hogedrukreiniging</li>
+            <li>Chemische Reiniging</li>
+          </ul>
+          <span class="service-link">Lees meer →</span>
+        </div>
+        <div class="service-card" onclick="showPage('renovatie')">
+          <div class="service-num">04</div>
+          <div class="service-icon">🔧</div>
+          <h3>Renovatie</h3>
+          <ul class="service-list">
+            <li>Interieur Renovatie</li>
+            <li>Exterieur Renovatie</li>
+            <li>Energie Verbeteringen</li>
+          </ul>
+          <span class="service-link">Lees meer →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <div class="about-strip">
+      <div class="about-left reveal">
+        <h2>Over<br>Boringen Rosu</h2>
+        <p>Bij Boringen Rosu zijn we trots op meer dan 15 jaar ervaring in de bouwsector. Ons succes is gebaseerd op een sterk team van hardwerkende en getalenteerde vakmensen die elk project met precisie en toewijding uitvoeren.</p>
+        <p>We zijn actief over heel België en hebben ons bewezen door te werken aan opdrachten voor enkele van de grootste bedrijven in het land.</p>
+        <ul class="about-usp-list">
+          <li>Flexibele bedrijfscultuur die 7/7 meedraait</li>
+          <li>Veilig werken met VCA attest</li>
+          <li>+15 jaar praktische ervaring</li>
+          <li>Up-to-date en kwalitatief machinepark</li>
+        </ul>
+        <button class="btn-white" onclick="showPage('over')">Meer over ons →</button>
+      </div>
+      <div class="about-right reveal">
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">15<span>+</span></div>
+            <div class="stat-label">Jaar ervaring</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">7<span>/7</span></div>
+            <div class="stat-label">Beschikbaarheid</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">100<span>%</span></div>
+            <div class="stat-label">Heel België</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">5<span>★</span></div>
+            <div class="stat-label">Google Rating</div>
+          </div>
+        </div>
+        <div class="vca-badge">
+          <div class="vca-icon">🛡</div>
+          <div class="vca-text">
+            <strong>VCA Gecertificeerd</strong>
+            Veilig werken is bij ons geen optie — het is een standaard. Volledig gecertificeerd voor veilige uitvoering op elk project.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="references reveal">
+      <div class="ref-label">Onze Referenties — Werken voor de grootste namen in de sector</div>
+      <div class="ref-logos">
+        <div class="ref-logo">BESIX</div>
+        <div class="ref-logo">EIFFAGE</div>
+        <div class="ref-logo">VBX</div>
+      </div>
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Een project klaarstaan?<br>Wij staan klaar om het uit te voeren.</h2>
+        <p>Uw project verdient de beste zorg. Neem persoonlijk contact op voor een offerte op maat.</p>
+      </div>
+      <div class="cta-banner-btns">
+        <button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button>
+        <a class="cta-phone" href="tel:+32465405016">📞 +32 465 40 50 16</a>
+      </div>
+    </div>
+
+  </div><!-- /page-home -->
+
+  <!-- ═══════════════ SERVICE PAGES (shared layout) ═══════════════ -->
+
+  <div class="page" id="page-beton-boren">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Dienst 01</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;">Beton <span style="color:var(--red);">Boren</span></h1>
+      <p style="font-size:1rem; color:var(--light); max-width:560px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Professioneel diamant- en kernboren voor elk type constructie. Met onze geavanceerde apparatuur maken we nauwkeurige doorboringen in beton, baksteen en andere materialen.</p>
+    </div>
+    <section style="padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-bottom:1.25rem; color:var(--white);">Wat omvat dit?</h2>
+        <ul class="service-list" style="margin-bottom:2rem;">
+          <li>Diamantboren voor alle materialen</li>
+          <li>Kernboren met precisie tot op de millimeter</li>
+          <li>Boringen voor leidingwerk, elektriciteit en ventilatie</li>
+          <li>Horizontaal, verticaal en schuin boren</li>
+          <li>Droog en nat boren mogelijk</li>
+          <li>Kleine tot grote diameters</li>
+        </ul>
+        <button class="btn-primary" onclick="showPage('contact')">Offerte aanvragen →</button>
+      </div>
+      <div style="background:var(--steel); border:1px solid var(--border); padding:2rem;">
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; margin-bottom:1rem; color:var(--red);">Waarom Boringen Rosu?</h3>
+        <ul class="about-usp-list">
+          <li>+15 jaar ervaring in betonboren</li>
+          <li>VCA gecertificeerd — veilig werken gegarandeerd</li>
+          <li>7/7 beschikbaar voor dringende opdrachten</li>
+          <li>Actief over heel België</li>
+        </ul>
+      </div>
+    </section>
+    <div class="cta-banner" style="margin-top:0;">
+      <div><h2>Klaar voor uw boringsproject?</h2><p>Neem contact op voor een vrijblijvende offerte.</p></div>
+      <div class="cta-banner-btns"><button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button></div>
+    </div>
+  </div>
+
+  <div class="page" id="page-beton-zagen">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Dienst 02</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;">Beton <span style="color:var(--red);">Zagen</span></h1>
+      <p style="font-size:1rem; color:var(--light); max-width:560px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Wand- en vloerzagen met diamanttechnologie voor schone en nauwkeurige sneden. Ideaal voor renovaties, aanpassingen en doorbraken in betonnen constructies.</p>
+    </div>
+    <section style="padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-bottom:1.25rem; color:var(--white);">Wat omvat dit?</h2>
+        <ul class="service-list" style="margin-bottom:2rem;">
+          <li>Wandzagen voor deuren en ramen</li>
+          <li>Vloerzagen voor leidingsleuven</li>
+          <li>Diamantzagen voor schone sneden</li>
+          <li>Zagen in alle richtingen</li>
+          <li>Minimale trillingen en stof</li>
+          <li>Werkt op moeilijk bereikbare plaatsen</li>
+        </ul>
+        <button class="btn-primary" onclick="showPage('contact')">Offerte aanvragen →</button>
+      </div>
+      <div style="background:var(--steel); border:1px solid var(--border); padding:2rem;">
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; margin-bottom:1rem; color:var(--red);">Onze aanpak</h3>
+        <ul class="about-usp-list">
+          <li>Geavanceerde diamantzaagmachines</li>
+          <li>Minimale hinder voor de omgeving</li>
+          <li>Snelle uitvoering, kwalitatief resultaat</li>
+          <li>Ervaren vakmensen op elke werf</li>
+        </ul>
+      </div>
+    </section>
+    <div class="cta-banner">
+      <div><h2>Klaar voor uw zaagproject?</h2><p>Neem contact op voor een vrijblijvende offerte.</p></div>
+      <div class="cta-banner-btns"><button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button></div>
+    </div>
+  </div>
+
+  <div class="page" id="page-gevelreiniging">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Dienst 03</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;"><span style="color:var(--red);">Gevel</span>reiniging</h1>
+      <p style="font-size:1rem; color:var(--light); max-width:560px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Professionele gevelreiniging, graffiti verwijdering en hogedrukreiniging voor gevels, terassen en buitenmuren. Snel, grondig en met de juiste techniek.</p>
+    </div>
+    <section style="padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-bottom:1.25rem; color:var(--white);">Wat omvat dit?</h2>
+        <ul class="service-list" style="margin-bottom:2rem;">
+          <li>Graffiti verwijdering op alle oppervlakken</li>
+          <li>Hogedrukreiniging gevels en terrassen</li>
+          <li>Chemische reiniging voor hardnekkige vlekken</li>
+          <li>Anti-graffiti behandeling</li>
+          <li>Voegwerk reiniging</li>
+          <li>Dak- en dakgootreiniging</li>
+        </ul>
+        <button class="btn-primary" onclick="showPage('contact')">Offerte aanvragen →</button>
+      </div>
+      <div style="background:var(--steel); border:1px solid var(--border); padding:2rem;">
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; margin-bottom:1rem; color:var(--red);">Resultaat gegarandeerd</h3>
+        <ul class="about-usp-list">
+          <li>Milieuvriendelijke reinigingsmiddelen</li>
+          <li>Geen schade aan het onderliggende materiaal</li>
+          <li>Snelle interventie mogelijk</li>
+          <li>Zichtbaar resultaat na één behandeling</li>
+        </ul>
+      </div>
+    </section>
+    <div class="cta-banner">
+      <div><h2>Gevel te reinigen?</h2><p>Neem contact op voor een vrijblijvende offerte.</p></div>
+      <div class="cta-banner-btns"><button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button></div>
+    </div>
+  </div>
+
+  <div class="page" id="page-renovatie">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Dienst 04</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;">Algemene <span style="color:var(--red);">Renovatie</span></h1>
+      <p style="font-size:1rem; color:var(--light); max-width:560px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Van interieur tot exterieur renovatie. Wij begeleiden uw project van A tot Z met vakmanschap en oog voor detail, inclusief energie verbeteringen.</p>
+    </div>
+    <section style="padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-bottom:1.25rem; color:var(--white);">Wat omvat dit?</h2>
+        <ul class="service-list" style="margin-bottom:2rem;">
+          <li>Interieur renovatie (muren, vloeren, plafonds)</li>
+          <li>Exterieur renovatie (gevel, dak, terras)</li>
+          <li>Energie verbeteringen en isolatie</li>
+          <li>Sloopwerk en afbraakwerken</li>
+          <li>Volledige coördinatie op de werf</li>
+          <li>Op maat gemaakte oplossingen</li>
+        </ul>
+        <button class="btn-primary" onclick="showPage('contact')">Offerte aanvragen →</button>
+      </div>
+      <div style="background:var(--steel); border:1px solid var(--border); padding:2rem;">
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; margin-bottom:1rem; color:var(--red);">Totaaloplossing</h3>
+        <ul class="about-usp-list">
+          <li>Van plan tot oplevering — één aanspreekpunt</li>
+          <li>Transparante prijsopgave zonder verrassingen</li>
+          <li>Vakmanschap met 15+ jaar ervaring</li>
+          <li>Actief in heel België</li>
+        </ul>
+      </div>
+    </section>
+    <div class="cta-banner">
+      <div><h2>Renovatieproject gepland?</h2><p>Neem contact op voor een vrijblijvende offerte.</p></div>
+      <div class="cta-banner-btns"><button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ OVER ONS ═══════════════ -->
+  <div class="page" id="page-over">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Over Ons</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;">Uw chirurg <span style="color:var(--red);">in beton</span></h1>
+      <p style="font-size:1rem; color:var(--light); max-width:600px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Bij Boringen Rosu zijn we trots op meer dan 15 jaar ervaring in de bouwsector. Ons succes is gebaseerd op een sterk team van hardwerkende en getalenteerde vakmensen die elk project met precisie en toewijding uitvoeren.</p>
+    </div>
+    <section style="padding:5rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:4rem;">
+      <div>
+        <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--white); margin-bottom:1.25rem;">Wie zijn wij?</h2>
+        <p style="font-size:0.93rem; color:var(--light); line-height:1.85; margin-bottom:1rem;">We zijn actief over heel België en hebben ons bewezen door te werken aan opdrachten voor enkele van de grootste bedrijven in het land.</p>
+        <p style="font-size:0.93rem; color:var(--light); line-height:1.85; margin-bottom:2rem;">Onze toewijding aan kwaliteit en innovatie onderscheidt ons in de industrie. We werken uitsluitend met de meest geavanceerde en kwalitatieve apparatuur, wat ons in staat stelt om elk project, groot of klein, tot een succes te maken.</p>
+        <ul class="about-usp-list">
+          <li>Flexibele bedrijfscultuur die 7/7 meedraait</li>
+          <li>Veilig werken met VCA attest</li>
+          <li>+15 jaar praktische ervaring</li>
+          <li>Up-to-date en kwalitatief machinepark</li>
+        </ul>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-num">15<span>+</span></div><div class="stat-label">Jaar ervaring</div></div>
+          <div class="stat-box"><div class="stat-num">7<span>/7</span></div><div class="stat-label">Beschikbaar</div></div>
+          <div class="stat-box"><div class="stat-num">100<span>%</span></div><div class="stat-label">Heel België</div></div>
+          <div class="stat-box"><div class="stat-num">5<span>★</span></div><div class="stat-label">Google Score</div></div>
+        </div>
+        <div class="vca-badge">
+          <div class="vca-icon">🛡</div>
+          <div class="vca-text"><strong>VCA Gecertificeerd</strong>Veiligheid staat centraal in elk project dat we uitvoeren.</div>
+        </div>
+      </div>
+    </section>
+    <div class="references" style="border-top:1px solid var(--border);">
+      <div class="ref-label">Referenties — Werken voor de grootste namen</div>
+      <div class="ref-logos">
+        <div class="ref-logo">BESIX</div>
+        <div class="ref-logo">EIFFAGE</div>
+        <div class="ref-logo">VBX</div>
+      </div>
+    </div>
+    <div class="cta-banner">
+      <div><h2>Neem contact op<br>voor een offerte</h2><p>Wij bespreken graag uw behoeften en bieden een op maat gemaakte oplossing aan.</p></div>
+      <div class="cta-banner-btns"><button class="btn-white" onclick="showPage('contact')">Offerte aanvragen →</button><a class="cta-phone" href="tel:+32465405016">📞 +32 465 40 50 16</a></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <div class="page" id="page-contact">
+    <div style="padding: 7rem 3rem 5rem; background: var(--steel); border-bottom: 1px solid var(--border);">
+      <div class="section-label">Contact</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); letter-spacing:0.02em; line-height:1; margin-bottom:1rem;">Vraag een <span style="color:var(--red);">Offerte</span></h1>
+      <p style="font-size:1rem; color:var(--light); max-width:500px; line-height:1.8; border-left:3px solid var(--red); padding-left:1.25rem;">Heeft u een project klaarstaan? Vul het formulier in of neem direct contact op. We reageren binnen 24 uur.</p>
+    </div>
+    <section class="contact-section">
+      <div class="contact-info reveal">
+        <h2>Contactgegevens</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Telefoon</strong>
+              <a href="tel:+32465405016">+32 465 40 50 16</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <div class="contact-item-text">
+              <strong>E-mail</strong>
+              <a href="mailto:boringenrosu@gmail.com">boringenrosu@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Werkgebied</strong>
+              Actief over heel België
+            </div>
+          </div>
+        </div>
+        <div class="contact-hours">
+          <div class="contact-hours-title">Openingstijden</div>
+          <p>Elke werkdag van 09:00 tot 18:00<br>Reactie binnen 24 uur gegarandeerd</p>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>Offerte aanvragen</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Naam</label>
+            <input type="text" placeholder="Jan Janssen" />
+          </div>
+          <div class="form-group">
+            <label>Bedrijf</label>
+            <input type="text" placeholder="Bedrijfsnaam (optioneel)" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Telefoon</label>
+            <input type="tel" placeholder="+32 ..." />
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="jan@voorbeeld.be" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dienst</label>
+          <select>
+            <option value="">Selecteer een dienst...</option>
+            <option>Beton Boren</option>
+            <option>Beton Zagen</option>
+            <option>Gevelreiniging</option>
+            <option>Algemene Renovatie</option>
+            <option>Combinatie van diensten</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Beschrijving van het project</label>
+          <textarea placeholder="Omschrijf uw project kort: locatie, type werk, timing..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;" onclick="alert('Bedankt! Wij nemen binnen 24 uur contact met u op.')">Offerte versturen →</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-wrap">
+          <div class="footer-logo-icon">BR</div>
+          <div class="footer-logo-text">Boringen Rosu</div>
+        </div>
+        <p class="footer-tagline">Uw chirurg in het zagen en boren van beton. Actief over heel België. VCA gecertificeerd. +15 jaar ervaring.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="#">FB</a>
+          <a class="footer-social" href="#">LI</a>
+          <a class="footer-social" href="#">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('over')">Over Boringen Rosu</a></li>
+          <li><a onclick="showPage('contact')">Contact & Offerte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Diensten</h4>
+        <ul>
+          <li><a onclick="showPage('beton-boren')">Beton Boren</a></li>
+          <li><a onclick="showPage('beton-zagen')">Beton Zagen</a></li>
+          <li><a onclick="showPage('gevelreiniging')">Gevelreiniging</a></li>
+          <li><a onclick="showPage('renovatie')">Algemene Renovatie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+32465405016">+32 465 40 50 16</a></li>
+          <li><a href="mailto:boringenrosu@gmail.com">boringenrosu@gmail.com</a></li>
+          <li><a onclick="showPage('contact')">Offerte aanvragen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Boringen Rosu. Alle rechten voorbehouden.</span>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="#">Algemene voorwaarden</a>
+        <a href="#">Privacybeleid</a>
+        <a href="https://zmeu.be" target="_blank">Website door zmeu digital</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(initReveal, 80);
+    }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function initReveal() {
+      const els = document.querySelectorAll('.page.active .reveal:not(.visible)');
+      els.forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          setTimeout(() => el.classList.add('visible'), i * 80);
+        }
+      });
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      els.forEach(el => obs.observe(el));
+    }
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.page.active .reveal:not(.visible)').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 40) el.classList.add('visible');
+      });
+    });
+
+    window.addEventListener('load', initReveal);
+  </script>
+</body>
+</html>
